@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      svg {
+      pie-chart {
         width: 100px;
         height: 100px;
       }
     </style>
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <svg viewBox="-1 -1 2 2">
-      <path
-        fill="#000"
-        stroke-width="0.1"
-        d="M 0 0 L 1 0 A 1 1 0 0 1 0 1 L 0 0"
-      ></path>
-    </svg>
+    <pie-chart data="40;30;30;20;10"></pie-chart>
+    <pie-chart data="10;90"></pie-chart>
   </body>
 </html>
