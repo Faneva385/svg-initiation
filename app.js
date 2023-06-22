@@ -39,7 +39,17 @@ class PieChart extends HTMLElement {
       .split(";")
       .map((value) => parseFloat(value));
 
-    const svg = stringToDom(`<svg viewBox="-1 -1 2 2"></svg>`);
+    const svg = stringToDom(`<svg viewBox="-1 -1 2 2">
+    <g class="pathGroup" mask="url(#graphMask)">
+    </g>
+    <mask class="maskGroup" id="graphMask">
+    <rect x="-1" y="-1" width="2" height="2" fill="white"/>
+    <circle r="0.2" fill="black"/>
+    </mask>
+    </svg>`);
+
+    const pathGroup = svg.querySelector(".pathGroup");
+    const maskGroup = svg.querySelector(".maskGroup");
 
     // lets create the paths(chemin svg)
     //here , we ignore the data and we focus in the index (_, k)
@@ -50,7 +60,7 @@ class PieChart extends HTMLElement {
         "path"
       ); //create an element svg (it indicates that it will be a pure svg element)
       path.setAttribute("fill", color);
-      svg.appendChild(path);
+      pathGroup.appendChild(path);
       return path;
     });
     shadow.appendChild(svg);
