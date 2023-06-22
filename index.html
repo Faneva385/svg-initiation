@@ -6,15 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        background-color: grey;
+        font-family: sans-serif;
+      }
+
       pie-chart {
-        width: 100px;
-        height: 100px;
+        display: block;
+        width: 500px;
+        height: 500px;
       }
     </style>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <pie-chart data="40;30;30;20;10"></pie-chart>
+    <pie-chart
+      id="demo"
+      data="40;30;30;20;10"
+      gap="0.02"
+      donut="0.2"
+      labels="Jaune;Vert;Orange;Bleu;Rouge;Bleu
+     clair"
+    ></pie-chart>
     <pie-chart data="10;90"></pie-chart>
   </body>
+  <script>
+    const demo = document.querySelector("#demo");
+    demo.addEventListener("sectionhover", (e) => {
+      console.log("hovered", e.detail);
+    });
+  </script>
 </html>
